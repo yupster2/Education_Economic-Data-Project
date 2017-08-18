@@ -1,0 +1,13 @@
+SELECT Geography_state,  AVG(Estimate_Male - Estimate_Female) avg_diff_male_female
+FROM db_presentation.earning_by_education
+GROUP BY Geography_state
+ORDER BY avg_diff_male_female
+
+SELECT Geography_state, AVG(Estimate_Male) avg_male_estimate, AVG(Estimate_Female) avg_female_estimate
+FROM db_presentation.earning_by_education
+GROUP BY Geography_state
+
+SELECT Geography_state, AVG(Estimate_Male) avg_male_estimate, AVG(Estimate_Female) avg_female_estimate
+FROM db_presentation.earning_by_education
+GROUP BY Geography_state
+HAVING  avg_male_estimate < avg_female_estimate
